@@ -23,7 +23,7 @@ getWeather();
 
 async function getWeather(){
     // Fetch returns a promise. We need 2 awaits; 1 to get the API data and a second to call the json method upon
-    const response = await (await fetch('http://api.openweathermap.org/data/2.5/weather?q='+location+'&units=metric&APPID='+API_KEY, {mode: 'cors'})).json();
+    const response = await (await fetch('https://api.openweathermap.org/data/2.5/weather?q='+location+'&units=metric&APPID='+API_KEY, {mode: 'cors'})).json();
  
     //TODO: ERROR HANDLING!
     if (response.cod === '404'){
