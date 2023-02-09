@@ -7,26 +7,43 @@
     <title>My Doc</title>
     
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet"> 
     <script src="main.js" defer></script>
 </head>
 <body>
-    
-    <div id="weatherWidget">
-        <div id="location">...</div>
-        <img id='weatherIcon' src="https://openweathermap.org/img/wn/01d@4x.png" alt="Icon" height=200px>
-        <div id="weatherDesc">...</div>
-        <div id="currentTemp">...</div>
-        <div id="feelTemp">...</div>
-        <div id="wind">...</div>
-    </div>
 
-    <div id="settingsWidget">
-        <form id="searchForm" action="javascript:void(0)">
-            <input id="formText" autocomplete="off" type="text" placeholder="Search Location">
-            <span id="errorMsg" hidden>Location Not Found!</span>
-        </form>
-        
+    <div id="content">
+        <div id="weatherWidget">
+            <div id="location">...</div>
+            <img id='weatherIcon' src="https://openweathermap.org/img/wn/01d@4x.png" alt="Icon" height=200px>
+            <div id="weatherDesc">...</div>
+            <div class="numericalInfo">
+                <div id="currentTemp">...</div>
+                <div>Current</div>
+            </div>
+    
+            <div class="numericalInfo">
+                <div id="feelTemp">...</div>
+                <div>Feels Like</div>
+            </div>
+    
+            <div class="numericalInfo">
+                <div id="wind">...</div>
+                <div>Wind</div>
+            </div>
+            
+        </div>
+    
+        <div id="settingsWidget">
+            <form id="searchForm" action="javascript:void(0)">
+                <input id="formText" autocomplete="off" type="text" placeholder="Search Location">
+                <span id="errorMsg" hidden>Location Not Found!</span>
+            </form>
+            
+        </div>
     </div>
+    
+
 
     
 </body>
