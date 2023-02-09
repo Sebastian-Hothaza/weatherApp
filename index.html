@@ -5,11 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Doc</title>
-    <div id="content">HELLO There</div>
+    
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
 </head>
 <body>
+    
+    <div id="weatherWidget">
+        <div id="location">...</div>
+        <img id='weatherIcon' src="https://openweathermap.org/img/wn/01d@4x.png" alt="Icon" height=200px>
+        <div id="weatherDesc">...</div>
+        <div id="currentTemp">...</div>
+        <div id="feelTemp">...</div>
+        <div id="wind">...</div>
+    </div>
+
+    <div id="settingsWidget">
+        <form id="searchForm" action="javascript:void(0)">
+            <input id="formText" autocomplete="off" type="text" placeholder="Search Location">
+            <span id="errorMsg" hidden>Location Not Found!</span>
+        </form>
+        
+    </div>
+
     
 </body>
 </html>
