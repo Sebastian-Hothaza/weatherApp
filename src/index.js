@@ -1,5 +1,5 @@
 const API_KEY = 'b72b99ebd46cd4ae88f7abb450d3662b';
-let location = 'kitchener,ca';
+let location = 'Toronto,ca';
 
 
 const widgetLocation = document.getElementById('location');
@@ -12,6 +12,10 @@ const widgetWind = document.getElementById('wind');
 const searchLocation = document.getElementById('searchForm');
 
 const errorMsg = document.getElementById('errorMsg');
+
+searchLocation.addEventListener('submit', processSearch);
+
+getWeather();
 
 
 // API GUIDE: https://openweathermap.org/current
@@ -38,16 +42,57 @@ function processData(weatherData){
     widgetLocation.innerText = weatherData.name + ', ' + weatherData.sys.country;
     widgetIcon.src = "http://openweathermap.org/img/wn/"+weatherData.weather[0].icon+"@4x.png";
     widgetWeatherDesc.innerText = weatherData.weather[0].description[0].toUpperCase() + weatherData.weather[0].description.slice(1);
-    widgetCurrentTemp.innerText = Math.round(weatherData.main.temp) + '°C Current';
-    widgetFeelTemp.innerText = Math.round(weatherData.main.feels_like) + '°C Feels Like';
-    widgetWind.innerText = Math.round(weatherData.wind.speed) + 'km/h Wind';
+    widgetCurrentTemp.innerText = Math.round(weatherData.main.temp) + '°C';
+    widgetFeelTemp.innerText = Math.round(weatherData.main.feels_like) + '°C';
+    widgetWind.innerText = Math.round(weatherData.wind.speed) + 'km/h';
+    loadbk(weatherData.weather[0].id);
+}
+
+// Given an id, loads the appropriate bk
+/*
+2- Thunderstorm
+3- Drizzle
+5- Rain
+6- Snow
+7- Mist/Haze
+8- Clear
+*/
+function loadbk(id){
+    switch(parseInt(id.toString()[0])){
+        case 2:
+            document.body.style.backgroundImage = "url(images/bk/thunderstorm.jpeg)" ;
+            break;
+        case 3:
+            document.body.style.backgroundImage = "url(images/bk/rain.jpg)" ;
+            break;
+        case 5:
+            document.body.style.backgroundImage = "url(images/bk/rain.jpg)" ;
+            break;
+        case 6:
+            document.body.style.backgroundImage = "url(images/bk/snow.jpg)" ;
+            break;
+        case 7:
+            document.body.style.backgroundImage = "url(images/bk/mist.jpg)" ;
+            break;
+        case 8:
+            if (id == 800){
+                document.body.style.backgroundImage = "url(images/bk/sun.jpg)" ;
+            }else{
+                document.body.style.backgroundImage = "url(images/bk/cloud.jpg)" ;
+            }
+            break;
+        default:
+            document.body.style.backgroundColor = 'blue' ;
+    } 
+    
+    document.body.style.backgroundSize = "cover" ;
 }
 
 
-getWeather();
 
 
-searchLocation.addEventListener('submit', processSearch);
+
+
 
 // Process search; no guarantee search is valid!
 function processSearch(){
