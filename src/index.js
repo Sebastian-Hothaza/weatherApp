@@ -19,7 +19,7 @@ getWeather();
 
 
 // API GUIDE: https://openweathermap.org/current
-// http://api.openweathermap.org/data/2.5/weather?q=kitchener,ca&units=metric&APPID=b72b99ebd46cd4ae88f7abb450d3662b
+// https://api.openweathermap.org/data/2.5/weather?q=kitchener,ca&units=metric&APPID=b72b99ebd46cd4ae88f7abb450d3662b
 
 async function getWeather(){
     // Fetch returns a promise. We need 2 awaits; 1 to get the API data and a second to call the json method upon
@@ -40,7 +40,7 @@ async function getWeather(){
 
 function processData(weatherData){
     widgetLocation.innerText = weatherData.name + ', ' + weatherData.sys.country;
-    widgetIcon.src = "http://openweathermap.org/img/wn/"+weatherData.weather[0].icon+"@4x.png";
+    widgetIcon.src = "https://openweathermap.org/img/wn/"+weatherData.weather[0].icon+"@4x.png";
     widgetWeatherDesc.innerText = weatherData.weather[0].description[0].toUpperCase() + weatherData.weather[0].description.slice(1);
     widgetCurrentTemp.innerText = Math.round(weatherData.main.temp) + '°C';
     widgetFeelTemp.innerText = Math.round(weatherData.main.feels_like) + '°C';
