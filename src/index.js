@@ -1,5 +1,5 @@
 const API_KEY = 'b72b99ebd46cd4ae88f7abb450d3662b';
-let location = 'Toronto,ca';
+let location = 'Kitchener,ca';
 
 
 const widgetLocation = document.getElementById('location');
